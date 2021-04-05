@@ -46,6 +46,17 @@ const productController = {
 			errorCallback(e, res);
 		}
 	},
+
+	async deleteOneById(req, res) {
+		try {
+			const { id } = req.params;
+			const response = await productService.deleteOneById(id);
+			restResponse(response, res);
+		} catch (e) {
+			console.log(e);
+			errorCallback(e, res);
+		}
+	},
 };
 
 export default productController;

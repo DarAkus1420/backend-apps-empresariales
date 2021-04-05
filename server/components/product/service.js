@@ -43,6 +43,14 @@ const productService = {
 		console.log(`Se actualizo el producto con el id ${id}`);
 		return okResponse(`Producto actualizado`);
 	},
+
+	async deleteOneById(id) {
+		await Product.destroy({
+			where: {
+				id,
+			},
+		});
+	},
 };
 
 export default productService;
