@@ -50,6 +50,7 @@ const productService = {
 				id,
 			},
 		});
+		return okResponse(`Producto con el id ${id} eliminado`);
 	},
 };
 
