@@ -9,11 +9,21 @@ import expressConfig from './config/express';
 //Routes
 import routes from './routes/index';
 
+import db from './config/db';
+
 const app = express();
 
 expressConfig(app);
 passportConfig(passport);
 app.use(passport.initialize());
 routes(app);
+
+db.sync({ force: false })
+	.then(() => {
+		console.log('Nos hemos conectado a la base de datos');
+	})
+	.catch(error => {
+		console.log('Se ha producido un error', error);
+	});
 
 module.exports = app;
