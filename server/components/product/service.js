@@ -1,4 +1,5 @@
 import { createdResponse, errorResponse, okResponse } from '../../utils/responses';
+import Brand from '../brand/model';
 import Product from './model';
 
 const productService = {
@@ -7,7 +8,7 @@ const productService = {
 		// 	name: 'Teclado',
 		// 	stock: 100,
 		// });
-		const products = await Product.findAll();
+		const products = await Product.findAll({ include: Brand });
 		console.log(`Se obtuvieron ${products.length} productos`);
 		return okResponse(`Productos obtenidos`, { products });
 	},
