@@ -9,7 +9,11 @@ const associations = {
 				name: 'brandId',
 			},
 		});
-		Product.belongsTo(Brand);
+		Product.belongsTo(Brand, {
+			foreignKey: {
+				name: 'brandId',
+			},
+		});
 	},
 };
 
